@@ -34,5 +34,6 @@ gem 'jquery-rails', '2.2.1'
 
 # To use debugger
 # gem 'debugger'
+gem 'pry'
 
 gem 'devise'
