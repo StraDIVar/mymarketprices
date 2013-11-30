@@ -2,12 +2,16 @@
 
 %table
   %tr
+    %th Name
+    %th Note
     %th
     %th
     %th
 
   - @goods.each do |good|
     %tr
+      %td= good.name
+      %td= good.note
       %td= link_to 'Show', good
       %td= link_to 'Edit', edit_good_path(good)
       %td= link_to 'Destroy', good, :method => :delete, :data => { :confirm => 'Are you sure?' }
