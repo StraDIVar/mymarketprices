@@ -1,4 +1,6 @@
 class GoodsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]
+
   # GET /goods
   # GET /goods.json
   def index
@@ -47,7 +49,7 @@ class GoodsController < ApplicationController
         format.html { redirect_to @good, notice: 'Good was successfully created.' }
         format.json { render json: @good, status: :created, location: @good }
       else
-        format.html { render action: "new" }
+        format.html { render action: 'new' }
         format.json { render json: @good.errors, status: :unprocessable_entity }
       end
     end
@@ -63,7 +65,7 @@ class GoodsController < ApplicationController
         format.html { redirect_to @good, notice: 'Good was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: 'edit' }
         format.json { render json: @good.errors, status: :unprocessable_entity }
       end
     end
