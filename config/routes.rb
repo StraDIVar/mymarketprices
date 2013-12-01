@@ -1,4 +1,7 @@
 Mymarketprices::Application.routes.draw do
+  resources :prices
+
+
   devise_for :users
 
   # The priority is based upon order of creation:

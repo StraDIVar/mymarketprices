@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Place:
+  = @price.place.name
+%p
+  %b User:
+  = @price.user.username
+%p
+  %b Value:
+  = @price.value
+
+= link_to 'Edit', edit_price_path(@price)
+\|
+= link_to 'Back', prices_path
