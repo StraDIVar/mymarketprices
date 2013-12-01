@@ -1,0 +1,9 @@
+.good
+  .good__name
+    = @name
+
+  .good__note
+    = @note
+
+  .good__date
+    = @updated_at

@@ -1,8 +1,13 @@
 Mymarketprices::Application.routes.draw do
-  resources :prices
-
+  get "main/index"
 
   devise_for :users
+
+  scope 'api' do
+    resources :goods
+  end
+
+  root to: "main#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -16,8 +21,6 @@ Mymarketprices::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  resources :goods
-  resources :places
 
   # Sample resource route with options:
   #   resources :products do
@@ -54,7 +57,6 @@ Mymarketprices::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'goods#index'
 
   # See how all your routes lay out with "rake routes"
 

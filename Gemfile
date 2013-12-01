@@ -11,6 +11,10 @@ group :assets do
   gem 'compass-rails'
   gem 'coffee-rails'
 
+  gem 'haml_coffee_assets'
+  gem 'backbone-on-rails', '~> 1.1.0.0'
+  gem 'marionette-rails', '~> 1.3.0'
+
   gem 'execjs'
   gem 'therubyracer'
 

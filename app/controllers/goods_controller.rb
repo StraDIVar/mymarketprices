@@ -7,7 +7,6 @@ class GoodsController < ApplicationController
     @goods = Good.all
 
     respond_to do |format|
-      format.html # index.html.erb
       format.json { render json: @goods }
     end
   end
@@ -18,7 +17,6 @@ class GoodsController < ApplicationController
     @good = Good.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
       format.json { render json: @good }
     end
   end
@@ -29,7 +27,6 @@ class GoodsController < ApplicationController
     @good = Good.new
 
     respond_to do |format|
-      format.html # new.html.erb
       format.json { render json: @good }
     end
   end
@@ -46,10 +43,8 @@ class GoodsController < ApplicationController
 
     respond_to do |format|
       if @good.save
-        format.html { redirect_to @good, notice: 'Good was successfully created.' }
         format.json { render json: @good, status: :created, location: @good }
       else
-        format.html { render action: 'new' }
         format.json { render json: @good.errors, status: :unprocessable_entity }
       end
     end
@@ -62,10 +57,8 @@ class GoodsController < ApplicationController
 
     respond_to do |format|
       if @good.update_attributes(params[:good])
-        format.html { redirect_to @good, notice: 'Good was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
         format.json { render json: @good.errors, status: :unprocessable_entity }
       end
     end
@@ -78,7 +71,6 @@ class GoodsController < ApplicationController
     @good.destroy
 
     respond_to do |format|
-      format.html { redirect_to goods_url }
       format.json { head :no_content }
     end
   end
