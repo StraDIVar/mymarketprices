@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 3.2.0'
-
 gem 'pg'
 
 # Gems used only for assets and not required
@@ -41,3 +40,11 @@ gem 'jquery-rails', '2.2.1'
 gem 'pry'
 
 gem 'devise'
+
+group :development do
+  gem 'capistrano'
+end
+
+group :production do
+  gem 'unicorn-rails'
+end
