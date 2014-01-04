@@ -9,7 +9,11 @@ qa:
   <<: *development
 
 production:
-  <<: *development
+  host: dbprices.ru
+  adapter: postgresql
+  database: mymarketprices
+  username: deployer
+  password: deployerDBpass
 
 test:
   <<: *development
