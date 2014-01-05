@@ -37,3 +37,12 @@ gem 'jquery-rails', '2.2.1'
 gem 'pry'
 
 gem 'devise'
+
+group :development do
+  gem 'capistrano', '~> 2.0'
+  gem 'rvm-capistrano'
+end
+
+group :production do
+  gem 'unicorn'
+end
