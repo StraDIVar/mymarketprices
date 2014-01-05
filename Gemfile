@@ -39,9 +39,7 @@ gem 'pry'
 gem 'devise'
 
 group :development do
-  gem 'capistrano',  '~> 3.0'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano',  '~> 2.0'
 end
 
 group :production do
