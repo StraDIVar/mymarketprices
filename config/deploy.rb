@@ -2,6 +2,7 @@ require "bundler/capistrano"
 require 'capistrano/ext/multistage'
 
 set :application, "mymarketprices"
+set :domain, "dbprices.ru"
 set :user, "deployer"
 set :deploy_to, "/domains/#{application}"
 set :deploy_via, :remote_cache
