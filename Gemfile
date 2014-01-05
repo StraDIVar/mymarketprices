@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 3.2.0'
+
 gem 'pg'
 
 # Gems used only for assets and not required
@@ -42,9 +43,11 @@ gem 'pry'
 gem 'devise'
 
 group :development do
-  gem 'capistrano'
+  gem 'capistrano',  '~> 3.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails', '~> 1.1'
 end
 
 group :production do
-  gem 'unicorn-rails'
+  gem 'unicorn'
 end
