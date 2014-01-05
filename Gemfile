@@ -39,7 +39,8 @@ gem 'pry'
 gem 'devise'
 
 group :development do
-  gem 'capistrano',  '~> 2.0'
+  gem 'capistrano', '~> 2.0'
+  gem 'rvm-capistrano'
 end
 
 group :production do

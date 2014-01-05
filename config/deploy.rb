@@ -1,4 +1,5 @@
-#require "bundler/capistrano"
+require "rvm/capistrano"
+require "bundler/capistrano"
 require 'capistrano/ext/multistage'
 
 set :application, "mymarketprices"
