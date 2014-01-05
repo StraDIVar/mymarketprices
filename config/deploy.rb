@@ -50,4 +50,10 @@ namespace :deploy do
     end
   end
   before "deploy", "deploy:check_revision"
+
+  set :rvm_ruby_string, :local
+  set :rvm_autolibs_flag, "read-only"
+
+  before 'deploy:setup', 'rvm:install_rvm'  # install/update RVM
+  before 'deploy:setup', 'rvm:install_ruby' # install Ruby and create gemset, OR:
 end
