@@ -1,24 +1,27 @@
-set :application, 'mymarketprives'
-set :repo_url, 'git@github.com:StraDIVar/mymarketprices.git'
-set :branch, 'marionette'
+require "rvm/capistrano"
+require "bundler/capistrano"
+require 'capistrano/ext/multistage'
 
-ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
-
+set :application, "mymarketprices"
+set :domain, "dbprices.ru"
+set :user, "deployer"
 set :deploy_to, "/domains/#{application}"
-set :scm, :git
+set :deploy_via, :remote_cache
+set :use_sudo, false
 
-# set :format, :pretty
-# set :log_level, :debug
-# set :pty, true
+set :scm, "git"
+set :repository, "git@github.com:StraDIVar/#{application}.git"
 
-# set :linked_files, %w{config/database.yml}
-# set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :default_stage, :production
 
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
-# set :keep_releases, 5
+server domain, :web, :app, :db, primary: true
+
+default_run_options[:pty] = true
+ssh_options[:forward_agent] = true
+
+after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
 namespace :deploy do
-
   %w[start stop restart].each do |command|
     desc "#{command} unicorn server"
     task command, roles: :app, except: {no_release: true} do
@@ -38,23 +41,19 @@ namespace :deploy do
   end
   after "deploy:finalize_update", "deploy:symlink_config"
 
-  #desc 'Restart application'
-  #task :restart do
-  #  on roles(:app), in: :sequence, wait: 5 do
-  #    # Your restart mechanism here, for example:
-  #    # execute :touch, release_path.join('tmp/restart.txt')
-  #  end
-  #end
-  #
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-         execute :rake, 'cache:clear'
-      # end
+  desc "Make sure local git is in sync with remote."
+  task :check_revision, roles: :web do
+    unless `git rev-parse HEAD` == `git rev-parse origin/#{branch}`
+      puts "WARNING: HEAD is not the same as origin/master"
+      puts "Run `git push` to sync changes."
+      exit
     end
   end
+  before "deploy", "deploy:check_revision"
 
-  after :finishing, 'deploy:cleanup'
+  set :rvm_ruby_string, :local
+  set :rvm_autolibs_flag, "read-only"
 
+  before 'deploy:setup', 'rvm:install_rvm'  # install/update RVM
+  before 'deploy:setup', 'rvm:install_ruby' # install Ruby and create gemset, OR:
 end
