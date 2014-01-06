@@ -1,7 +1,7 @@
 set :stage, :production
 set :rails_env, 'production'
 set :domain, "dbprices.ru"
-set :branch, "develop"
+set :branch, "marionette"
 
 # Simple Role Syntax
 # ==================
