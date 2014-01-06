@@ -1,0 +1,10 @@
+development: &development
+  host: localhost
+  adapter: postgresql
+  database: mymarketprices_dev
+  username: robocast
+  password: robocast
+
+staging:
+  <<: *development
+  database: mymarketprices_test
