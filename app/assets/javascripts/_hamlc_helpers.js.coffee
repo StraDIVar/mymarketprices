@@ -35,11 +35,7 @@ class Tag
     "</#{@tagName}>"
 
   toString: ->
-    s = ''
-    s += @openTag()
-    s += @text
-    s += @closeTag() if @text
-    s
+    "#{@openTag()}#{@text}#{@closeTag() if @text}"
 
 
 # HTML HELPERS
