@@ -8,15 +8,10 @@ myMarketPrices.module 'Routers'
 
 myMarketPrices.addInitializer ->
   @.addRegions
-    toolbar: "#toolbar"
     content: "#content"
 
-  @goodsCollection = new @Collections.Goods()
-  @goodsCollection.fetch()
-  @content.show new @Views.Goods(collection: @goodsCollection)
-
 myMarketPrices.on "initialize:after", ->
-  Backbone.history.start(pushState: true) if Backbone.history?
+  Backbone.history.start(pushState: false) if Backbone.history?
 
 
 $ ->
