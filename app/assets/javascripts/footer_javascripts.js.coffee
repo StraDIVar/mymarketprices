@@ -16,4 +16,7 @@
 #= require backbone
 #= require backbone.marionette
 #= require backbone/main_app
-#= require_tree ./backbone
+#= require_tree ./backbone/templates
+#= require_tree ./backbone/models
+#= require_tree ./backbone/views
+#= require_tree ./backbone/collections
