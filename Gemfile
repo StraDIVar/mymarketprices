@@ -19,6 +19,8 @@ group :assets do
   gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
+
+  gem 'js-routes', '~> 0.9'
 end
 
 gem 'haml-rails'

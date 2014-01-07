@@ -1,0 +1,38 @@
+.topbar
+  .topbar__inner
+    .topbar__logo
+
+    - if @user.signed_in
+      %ul.topbar__menu.topbar__menu--pos_left
+        %li.topbar__menu_button
+          != @linkTo "Add Price", @EMPTY_HREF, class: "topbar__menu_button_link"
+
+        %li.topbar__divider
+
+        %li.topbar__menu_button
+          != @linkTo "Add Place", @EMPTY_HREF, class: "topbar__menu_button_link"
+
+    %ul.topbar__menu.topbar__menu--pos_right
+      - if @user.signed_in
+        %li.topbar__menu_submenu
+          != @linkTo @user.name, @EMPTY_HREF, class: "topbar__menu_button_link"
+
+          %ul.topbar__submenu
+            %li.topbar__submenu_button
+              != @linkTo "Edit Profile", Routes.edit_user_registration_path(), class: "topbar__submenu_button_link"
+
+            %li.topbar__divider
+
+            %li.topbar__submenu_button
+              != @linkTo "Logout", Routes.destroy_user_session_path(), rel: "nofollow", "data-method": "delete",  |
+                 class: "topbar__submenu_button_link"                                                           |
+
+      - else
+        %li.topbar__menu_button
+          != @linkTo "Login", Routes.new_user_session_path(), class: "topbar__menu_button_link"
+
+        %li.topbar__menu_button
+          != @linkTo "Sign Up", Routes.new_user_registration_path(), class: "topbar__menu_button_link"
+
+
+- mmpApp.topbar = mmpApp.topbar || new mmpApp.Topbar(unique: true)

@@ -1,0 +1,132 @@
+@import "compass"
+
+$topbar-height: 50px
+$logo-width: 64px
+$topbar-bg-color: lightgray
+$topbar-bg-color: lightgray
+$topbar-text-shadow-color: whitesmoke
+$topbar_submenu_element_height: 2em
+
+.topbar
+  height: $topbar-height
+
+.topbar--hidden
+  height: 0
+
+.topbar__inner
+  position: fixed
+  top: 0
+  width: 100%
+  +pie-clearfix
+  background: $topbar-bg-color
+  box-shadow: rgba(0, 0, 0, 0.55) 0 -10px 7px 10px
+
+  .topbar--hidden &
+    top: - $topbar-height
+
+.topbar__logo
+  float: left
+  width: $logo-width
+  height: $topbar-height
+
+// menu -----------------------------------------------------------------------------------------------------
+
+.topbar__menu
+  +pie-clearfix
+
+.topbar__menu--pos_left
+  float: left
+
+.topbar__menu--pos_right
+  float: right
+
+%topbar__menu_element
+  height: $topbar-height
+
+  .topbar__menu--pos_left > &
+    float: left
+
+  .topbar__menu--pos_right > &
+    float: right
+
+.topbar__menu_button
+  @extend %topbar__menu_element
+  margin: 0 0.1em
+
+.topbar__menu_button_link
+  display: inline-block
+  line-height: $topbar-height
+  padding: 0 0.5em
+
+  &, &:visited
+    text-decoration: none
+    +text-shadow($topbar-text-shadow-color 1px 0 1px)
+
+  &:hover, &:focus
+    text-decoration: none
+    color: #222222
+    +text-shadow(#dddddd 1px 0 1px)
+
+.topbar__menu_submenu
+  @extend %topbar__menu_element
+  position: relative
+
+// submenu --------------------------------------------------------------------------------------------------
+
+.topbar__submenu
+  position: absolute
+  display: none
+  top: 100%
+  background: $topbar-bg-color
+
+  .topbar__menu--pos_right &
+    right: 0
+
+  .topbar__menu--pos_left &
+    left: 0
+
+  .topbar__menu_submenu--active &
+    display: block
+
+%topbar__submenu_element
+  height: $topbar_submenu_element_height
+
+.topbar__submenu_button
+  @extend %topbar__submenu_element
+
+.topbar__submenu_submenu
+  @extend %topbar__submenu_element
+
+.topbar__submenu_button_link
+  display: block
+  line-height: $topbar_submenu_element_height
+  padding: 0 0.5em
+  white-space: nowrap
+
+  &, &:visited
+    text-decoration: none
+    +text-shadow($topbar-text-shadow-color 1px 0 1px)
+
+  &:hover, &:focus
+    text-decoration: none
+    color: #222222
+    +text-shadow(#dddddd 1px 0 1px)
+
+// divider --------------------------------------------------------------------------------------------------
+
+.topbar__divider
+
+  .topbar__menu > &
+    @extend %topbar__menu_element
+    border-left: 1px solid lightslategrey
+    border-right: 1px solid $topbar-text-shadow-color
+    height: $topbar-height - 2px
+    width: 0
+    margin: 1px 0.2em 0
+
+  .topbar__submenu > &
+    height: 0
+    width: 98%
+    border-top: 1px solid lightslategrey
+    border-bottom: 1px solid $topbar-text-shadow-color
+

@@ -1,2 +1,9 @@
-#toolbar
 #content
+
+:coffee
+  $ ->
+    $("#topbar_navigation").html JST["blocks/templates/topbar"]
+      unique: true
+      user:
+        signed_in: #{user_signed_in?}
+        name: "#{user_signed_in? ? current_user.username : '' }"
