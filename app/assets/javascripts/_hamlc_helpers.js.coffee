@@ -31,7 +31,7 @@ class Tag
 
     "<#{@tagName}#{attributeString}#{close}"
 
-  closeTag: (tagName) ->
+  closeTag: ->
     "</#{@tagName}>"
 
   toString: ->
