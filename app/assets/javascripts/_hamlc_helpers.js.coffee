@@ -132,5 +132,4 @@ FormHelpers =
     Tag.make 'input', attrs
 
 # Make HtmlHelpers available as HAML.globals
-window.HAML = window.HAML || {}
-window.HAML.globals = -> FormHelpers
+HAML.globals = -> FormHelpers
