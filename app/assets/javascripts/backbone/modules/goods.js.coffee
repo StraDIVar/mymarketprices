@@ -5,12 +5,17 @@ myMarketPrices.module "Goods", (Mod, App, Backbone, Marionette, $, _) ->
       controller: Mod.controller
       appRoutes:
         "goods"     : "index"
+        "goods/new" : "new"
 
   class GoodsController extends Backbone.Marionette.Controller
     constructor: (options) ->
+      @content = App.content
       @collection = new App.Collections.Goods()
 
     index: ->
       @collection.fetch
-        success: (collection) ->
-          App.content.show new App.Views.Goods(collection: collection)
+        success: (collection) =>
+          @content.show new App.Views.Goods(collection: collection)
+
+    new: ->
+      @content.show new App.Views.GoodForm(model: new App.Models.Good)

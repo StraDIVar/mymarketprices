@@ -57,7 +57,7 @@ class GoodsController < ApplicationController
 
     respond_to do |format|
       if @good.update_attributes(params[:good])
-        format.json { head :no_content }
+        format.json { render json: { status: :updated } }
       else
         format.json { render json: @good.errors, status: :unprocessable_entity }
       end

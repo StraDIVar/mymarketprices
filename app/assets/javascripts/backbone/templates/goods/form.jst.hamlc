@@ -1,0 +1,15 @@
+.good_form
+  .good_form__field
+    %label
+      Name
+      != @textField "name", @name
+
+  .good_form__field
+    %label
+      Note
+      != @textarea "note", @note
+
+  .good_form__actions
+    != @linkTo "#{if @id? then 'Update' else 'Create'}", @EMPTY_HREF,               |
+               class: "good_form__submit_button", id: "good_form__submit_button"    |
+    != @linkTo "Cancel", @EMPTY_HREF, class: "good_form__cancel_button", id: "good_form__cancel_button"
