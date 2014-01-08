@@ -9,6 +9,7 @@ gem 'pg'
 group :assets do
   gem 'sass-rails'
   gem 'compass-rails'
+  gem 'font-awesome-sass', '~> 4.0'
   gem 'coffee-rails'
 
   gem 'haml_coffee_assets'
