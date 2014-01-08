@@ -1,0 +1,33 @@
+$el_button_height: 2em
+
+.el_button
+  display: inline-block
+  line-height: $el_button_height
+  height: $el_button_height
+  padding: 0 1em
+  font-size: medium
+  background: #4a9bd0
+  +background-image(linear-gradient(top, #61b3e3, #3080bb))
+  +box-shadow(#75bee7 0 0 1px 0 inset)
+  +border-radius(0.25em)
+  border: 1px solid #3080bb
+  color: #ffffff
+  font-size: small
+  font-weight: bold
+  +text-shadow(rgba(0, 0, 0, 0.9) 1px 1px 2px)
+
+  &, &:visited
+    text-decoration: none
+
+  &:hover, &:active
+    text-decoration: none
+    +background-image(linear-gradient(top, #61b3e3, #3080bb 70%, #3080bb))
+
+.el_button--danger
+  background: #cd4922
+  +background-image(linear-gradient(top, #e05721, #be3e23))
+  +box-shadow(#e56832 0 0 1px 0 inset)
+  border: 1px solid #9e2601
+
+  &:hover, &:active
+    +background-image(linear-gradient(top, #e05721, #be3e23 70%, #be3e23))
