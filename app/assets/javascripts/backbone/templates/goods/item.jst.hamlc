@@ -1,9 +1,14 @@
-.good
-  .good__name
-    = @name
+.good__name
+  = @name
 
-  .good__note
-    = @note
+  != @linkTo "", @EMPTY_HREF, class: "good__collapse_switcher"
 
-  .good__date
-    = @updated_at
+.good__note
+  = @note
+
+.good__date
+  = @updated_at
+
+.good__actions
+  != @linkTo "Edit", "#good/#{@id}/edit", class: "good__edit_button el_button"
+  != @linkTo "Delete", Routes.good_path(@id), class: "good__delete_button el_button el_button--danger"

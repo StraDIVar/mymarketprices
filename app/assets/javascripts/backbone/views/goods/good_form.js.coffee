@@ -7,8 +7,6 @@ class myMarketPrices.Views.GoodForm extends Backbone.Marionette.ItemView
   ui:
     name: "[name='name']"
     note: "[name='note']"
-    submitButton: "#good_form__submit_button"
-    cancelButton: "#good_form__cancel_button"
 
   events:
     "click #good_form__submit_button"    : "submit"
