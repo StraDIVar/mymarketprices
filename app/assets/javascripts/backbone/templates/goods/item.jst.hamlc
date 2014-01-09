@@ -11,4 +11,4 @@
 
 .good__actions
   != @linkTo "Edit", "#good/#{@id}/edit", class: "good__edit_button el_button"
-  != @linkTo "Delete", Routes.good_path(@id), class: "good__delete_button el_button el_button--danger"
+  != @linkTo "Delete", "#good/#{@id}/delete", class: "good__delete_button el_button el_button--danger"

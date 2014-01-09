@@ -4,9 +4,10 @@ myMarketPrices.module "Goods", (Mod, App, Backbone, Marionette, $, _) ->
     Mod.router = new Marionette.AppRouter
       controller: Mod.controller
       appRoutes:
-        "goods"         : "index"
-        "goods/new"     : "new"
-        "good/:id/edit" : "edit"
+        "goods"             : "index"
+        "goods/new"         : "new"
+        "good/:id/edit"     : "edit"
+        "good/:id/delete"   : "delete"
 
   class GoodsController extends Backbone.Marionette.Controller
     constructor: (options) ->
@@ -23,3 +24,7 @@ myMarketPrices.module "Goods", (Mod, App, Backbone, Marionette, $, _) ->
 
     edit: (id) =>
       @content.show new App.Views.GoodForm(model: @collection.get(id))
+
+    delete: (id) =>
+      @collection.get(id).destroy()
+      Backbone.history.navigate("goods", replace: true)

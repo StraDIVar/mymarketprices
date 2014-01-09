@@ -71,7 +71,7 @@ class GoodsController < ApplicationController
     @good.destroy
 
     respond_to do |format|
-      format.json { head :no_content }
+      format.json { render json: { status: :deleted } }
     end
   end
 end
