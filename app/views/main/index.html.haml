@@ -1,9 +1,9 @@
 #content
 
 :coffee
-  $ ->
-    $("#topbar_navigation").html JST["blocks/templates/topbar"]
-      unique: true
-      user:
-        signed_in: #{user_signed_in?}
-        name: "#{user_signed_in? ? current_user.username : '' }"
+  mmpApp.options =
+    logo_path: "#{asset_path('logo.png')}"
+    user:
+      signed_in: #{user_signed_in?}
+      name: "#{current_user.username if user_signed_in?}"
+      id: "#{current_user.id if user_signed_in?}"

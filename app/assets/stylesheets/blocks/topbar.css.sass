@@ -1,8 +1,7 @@
 @import "compass"
 
-$topbar-height: 50px
+$topbar-height: 40px
 $logo-width: 64px
-$topbar-bg-color: lightgray
 $topbar-bg-color: lightgray
 $topbar-text-shadow-color: whitesmoke
 $topbar-submenu-element-height: 2em
@@ -30,6 +29,22 @@ $topbar-submenu-element-height: 2em
   float: left
   width: $logo-width
   height: $topbar-height
+  line-height: $topbar-height
+  text-align: center
+
+.topbar__logo_link
+  display: inline-block
+  line-height: 1
+  vertical-align: middle
+
+  &, &:visited
+    text-decoration: none
+
+  &:hover, &:active
+    text-decoration: none
+
+.topbar__logo_image
+  vertical-align: top
 
 // menu -----------------------------------------------------------------------------------------------------
 
@@ -74,6 +89,7 @@ $topbar-submenu-element-height: 2em
   position: relative
 
 // submenu --------------------------------------------------------------------------------------------------
+// TODO: clean
 
 .topbar__submenu
   position: absolute

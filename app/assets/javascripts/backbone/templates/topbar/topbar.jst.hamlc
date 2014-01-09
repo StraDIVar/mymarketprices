@@ -1,0 +1,39 @@
+.topbar
+  .topbar__inner
+    .topbar__logo
+      != @linkTo @image(@logo_path, alt: "logo", size: "32x32", class: "topbar__logo_image"), @EMPTY_HREF,  |
+                 class: "topbar__logo_link"                                                                 |
+
+    - if @user.signed_in
+      %ul.topbar__menu.topbar__menu--pos_left
+        %li.topbar__divider
+
+        %li.topbar__menu_button
+          != @linkTo "Add Price", @EMPTY_HREF, class: "topbar__menu_button_link"
+
+        %li.topbar__divider
+
+        %li.topbar__menu_button
+          != @linkTo "Add Place", @EMPTY_HREF, class: "topbar__menu_button_link"
+
+        %li.topbar__divider
+
+    %ul.topbar__menu.topbar__menu--pos_right
+      - if @user.signed_in
+        %li.topbar__menu_button
+          != @linkTo "Logout", Routes.destroy_user_session_path(), rel: "nofollow", "data-method": "delete",  |
+                     class: "topbar__menu_button_link"                                                        |
+
+        %li.topbar__divider
+
+        %li.topbar__menu_button
+          != @linkTo @user.name, Routes.edit_user_registration_path(), class: "topbar__menu_button_link"
+
+      - else
+        %li.topbar__menu_button
+          != @linkTo "Login", Routes.new_user_session_path(), class: "topbar__menu_button_link"
+
+        %li.topbar__divider
+
+        %li.topbar__menu_button
+          != @linkTo "Sign Up", Routes.new_user_registration_path(), class: "topbar__menu_button_link"

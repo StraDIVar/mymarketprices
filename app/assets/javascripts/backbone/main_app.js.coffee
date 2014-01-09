@@ -8,7 +8,10 @@ myMarketPrices.module 'Routers'
 
 myMarketPrices.addInitializer ->
   @.addRegions
-    content: "#content"
+    topbar:   "#topbar_navigation"
+    content:  "#content"
+
+  @Topbar.start(mmpApp.options)
 
 myMarketPrices.on "initialize:after", ->
   Backbone.history.start(pushState: false) if Backbone.history?
