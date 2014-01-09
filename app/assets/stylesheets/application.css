@@ -12,4 +12,5 @@
  *= require font-awesome
  *= require global
  *= require_tree ./blocks
+ *= require_tree ./views
  */
