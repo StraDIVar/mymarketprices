@@ -10,6 +10,7 @@ class myMarketPrices.Views.GoodForm extends Backbone.Marionette.ItemView
 
   events:
     "click #good_form__submit_button"    : "submit"
+    "click #good_form__cancel_button"    : "cancel"
 
   submit: ->
     @model.set
@@ -28,3 +29,9 @@ class myMarketPrices.Views.GoodForm extends Backbone.Marionette.ItemView
 
   update: ->
     @model.save()
+
+  cancel: ->
+    if Backbone.history.history.length > 1
+      Backbone.history.history.back()
+    else
+      Backbone.history.navigate("/")
