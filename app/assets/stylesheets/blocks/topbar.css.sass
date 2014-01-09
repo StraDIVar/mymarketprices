@@ -5,7 +5,7 @@ $logo-width: 64px
 $topbar-bg-color: lightgray
 $topbar-bg-color: lightgray
 $topbar-text-shadow-color: whitesmoke
-$topbar_submenu_element_height: 2em
+$topbar-submenu-element-height: 2em
 
 .topbar
   height: $topbar-height
@@ -91,7 +91,7 @@ $topbar_submenu_element_height: 2em
     display: block
 
 %topbar__submenu_element
-  height: $topbar_submenu_element_height
+  height: $topbar-submenu-element-height
 
 .topbar__submenu_button
   @extend %topbar__submenu_element
@@ -101,7 +101,7 @@ $topbar_submenu_element_height: 2em
 
 .topbar__submenu_button_link
   display: block
-  line-height: $topbar_submenu_element_height
+  line-height: $topbar-submenu-element-height
   padding: 0 0.5em
   white-space: nowrap
 

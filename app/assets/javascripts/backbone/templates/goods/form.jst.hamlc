@@ -1,15 +1,17 @@
 .good_form
-  .good_form__field
-    %label
-      Name
-      != @textField "name", @name
+  .good_form__field_row
+    %label.good_form__label.el_label= "Name"
 
-  .good_form__field
-    %label
-      Note
-      != @textarea "note", @note
+    != @textField "name", @name, class: "good_form__field good_form__field--input el_field el_field--input_text"
+
+  .good_form__field_row
+    %label.good_form__label.el_label= "Note"
+
+    != @textarea "note", @note, class: "good_form__field good_form__field--textarea el_field el_field--textarea"
 
   .good_form__actions
-    != @linkTo "#{if @id? then 'Update' else 'Create'}", @EMPTY_HREF,               |
-               class: "good_form__submit_button", id: "good_form__submit_button"    |
-    != @linkTo "Cancel", @EMPTY_HREF, class: "good_form__cancel_button", id: "good_form__cancel_button"
+    != @linkTo "#{if @id? then 'Update' else 'Create'}", @EMPTY_HREF,                                           |
+               class: "good_form__submit_button el_button el_button--primary", id: "good_form__submit_button"   |
+
+    != @linkTo "Cancel", @EMPTY_HREF,                                                                           |
+               class: "good_form__cancel_button el_button el_button--secondary", id: "good_form__cancel_button" |

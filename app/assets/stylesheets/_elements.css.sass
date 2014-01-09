@@ -5,14 +5,13 @@ $el_button_height: 2em
   line-height: $el_button_height
   height: $el_button_height
   padding: 0 1em
-  font-size: medium
   background: #4a9bd0
   +background-image(linear-gradient(top, #61b3e3, #3080bb))
   +box-shadow(#75bee7 0 0 1px 0 inset)
   +border-radius(0.25em)
   border: 1px solid #3080bb
   color: #ffffff
-  font-size: small
+  font-size: medium
   font-weight: bold
   +text-shadow(rgba(0, 0, 0, 0.9) 1px 1px 2px)
 
@@ -31,3 +30,48 @@ $el_button_height: 2em
 
   &:hover, &:active
     +background-image(linear-gradient(top, #e05721, #be3e23 70%, #be3e23))
+
+.el_button--primary
+  background: #fbad15
+  +background-image(linear-gradient(top, #ffc20f, #f89a1e))
+  +box-shadow(#ffcc2b 0 0 1px 0 inset)
+  border: 1px solid #86540d
+  color: $def-font-color
+  +text-shadow(rgba(0, 0, 0, 0.4) 1px 1px 2px)
+
+  &:hover, &:active
+    +background-image(linear-gradient(top, #ffc20f, #f89a1e 70%, #f89a1e))
+
+.el_button--secondary
+  background: #e2e4e3
+  +background-image(linear-gradient(top, #ebebeb, #dce0df))
+  +box-shadow(#dce0df 0 0 1px 0 inset)
+  border: 1px solid #939393
+  color: $def-font-color
+  +text-shadow(rgba(0, 0, 0, 0.4) 1px 1px 2px)
+  font-weight: normal
+
+  &:hover, &:active
+    +background-image(linear-gradient(top, #ebebeb, #dce0df 70%, #dce0df))
+
+.el_field
+  display: inline-block
+  border: none
+  outline: none
+  border-bottom: 1px dashed grey
+  background: #f8f8f8
+  line-height: 1.5em
+  height: 1.5em
+  font-family: $def-font-family
+  font-size: $def-font-size
+  color: $def-font-color
+
+.el_field--textarea
+  height: 1.5em * 3
+  resize: none
+
+.el_label
+  display: inline-block
+  text-align: right
+  vertical-align: top
+  line-height: 1
