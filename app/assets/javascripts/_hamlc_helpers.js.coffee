@@ -116,7 +116,7 @@ FormHelpers =
     attrs['value']  = value
     if checked
       attrs['checked'] = 'checked'
-    Tag.make 'input', attrs, null
+    Tag.make 'input', attrs
 
   label: (name, content = "", attrs = {}) ->
     attrs['for'] = name
@@ -126,6 +126,18 @@ FormHelpers =
     attrs['type']   = 'submit'
     attrs['value']  = value
     Tag.make 'input', attrs
+
+  image: (src = "", attrs = {}) ->
+    attrs['src'] = src
+    if attrs['size']?
+      sizes = attrs['size'].split("x")
+      if sizes.length == 2
+        attrs['width'] = sizes[0]
+        attrs['height'] = sizes[1]
+
+      delete attrs['size']
+
+    Tag.make 'img', attrs
 
 # Make HtmlHelpers available as HAML.globals
 HAML.globals = -> FormHelpers
