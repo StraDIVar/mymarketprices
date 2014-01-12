@@ -1,8 +1,8 @@
 class myMarketPrices.Views.GoodForm extends Backbone.Marionette.ItemView
   model: myMarketPrices.Models.Good
   template: JST["backbone/templates/goods/form"]
-  tagName: 'form'
-  className: 'good_form'
+  tagName: "form"
+  className: "good_form"
 
   ui:
     name: "[name='name']"

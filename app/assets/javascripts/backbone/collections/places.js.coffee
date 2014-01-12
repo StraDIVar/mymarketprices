@@ -1,2 +1,2 @@
 class myMarketPrices.Collections.Places extends Backbone.Collection
-  url: 'api/places'
+  url: "api/places"

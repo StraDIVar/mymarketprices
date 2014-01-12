@@ -1,10 +1,10 @@
 @myMarketPrices = new Backbone.Marionette.Application()
 
-myMarketPrices.module 'Models'
-myMarketPrices.module 'Collections'
-myMarketPrices.module 'Views'
-myMarketPrices.module 'Controllers'
-myMarketPrices.module 'Routers'
+myMarketPrices.module "Models"
+myMarketPrices.module "Collections"
+myMarketPrices.module "Views"
+myMarketPrices.module "Controllers"
+myMarketPrices.module "Routers"
 
 myMarketPrices.addInitializer ->
   @.addRegions
