@@ -5,6 +5,7 @@ Mymarketprices::Application.routes.draw do
 
   scope 'api' do
     resources :goods
+    resources :places
   end
 
   root to: "main#index"
