@@ -1,0 +1,14 @@
+.place__name
+  = @name
+
+  != @linkTo "", @EMPTY_HREF, class: "place__collapse_switcher"
+
+.place__note
+  = @note
+
+.place__date
+  = @updated_at
+
+.place__actions
+  != @linkTo "Edit", "#place/#{@id}/edit", class: "place__edit_button el_button"
+  != @linkTo "Delete", "#place/#{@id}/delete", class: "place__delete_button el_button el_button--danger"

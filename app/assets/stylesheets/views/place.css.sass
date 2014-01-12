@@ -1,0 +1,38 @@
+@import "mixins"
+
+.place
+  padding: 0.5em
+
+.place__name
+  font-size: x-large
+  font-weight: bold
+  margin: 0.3em 0
+  white-space: nowrap
+  position: relative
+  padding-right: 2em
+
+  .place--collapsed &
+    white-space: normal
+
+.place__collapse_switcher
+  +collapse_switcher(up)
+
+  .place--collapsed &
+    +collapse_switcher
+
+.place__note
+  font-size: small
+  margin: 0.5em 0
+
+.place__date
+  font-size: x-small
+  margin: 0.5em 0
+
+  .place--collapsed &
+    display: none
+
+.place__actions
+  margin-top: 0.8em
+
+  .place--collapsed &
+    display: none

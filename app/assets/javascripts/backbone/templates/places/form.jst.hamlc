@@ -1,0 +1,17 @@
+.place_form
+  .place_form__field_row
+    %label.place_form__label.el_label= "Name"
+
+    != @textField "name", @name, class: "place_form__field place_form__field--input el_field el_field--input_text"
+
+  .place_form__field_row
+    %label.place_form__label.el_label= "Note"
+
+    != @textarea "note", @note, class: "place_form__field place_form__field--textarea el_field el_field--textarea"
+
+  .place_form__actions
+    != @linkTo "#{if @id? then 'Update' else 'Create'}", @EMPTY_HREF,                                           |
+               class: "place_form__submit_button el_button el_button--primary", id: "place_form__submit_button"   |
+
+    != @linkTo "Cancel", @EMPTY_HREF,                                                                           |
+               class: "place_form__cancel_button el_button el_button--secondary", id: "place_form__cancel_button" |
