@@ -1,20 +1,20 @@
 .topbar
   .topbar__inner
     .topbar__logo
-      != @linkTo @image(@logo_path, alt: "logo", size: "32x32", class: "topbar__logo_image"), @EMPTY_HREF,  |
-                 class: "topbar__logo_link"                                                                 |
+      != @linkTo @image(@logo_path, alt: "logo", size: "32x32", class: "topbar__logo_image"), Routes.root_path(),  |
+                 class: "topbar__logo_link"                                                                       |
 
     - if @user.signed_in
       %ul.topbar__menu.topbar__menu--pos_left
         %li.topbar__divider
 
         %li.topbar__menu_button
-          != @linkTo "Add Price", @EMPTY_HREF, class: "topbar__menu_button_link"
+          != @linkTo "Add Good", "#goods/new", class: "topbar__menu_button_link"
 
         %li.topbar__divider
 
         %li.topbar__menu_button
-          != @linkTo "Add Place", @EMPTY_HREF, class: "topbar__menu_button_link"
+          != @linkTo "Add Place", "#places/new", class: "topbar__menu_button_link"
 
         %li.topbar__divider
 
