@@ -1,58 +1,42 @@
-$el_button_height: 2em
+$el_button_height: 2.5em
 
 .el_button
   display: inline-block
   line-height: $el_button_height
   height: $el_button_height
-  padding: 0 1em
-  background: #4a9bd0
-  +background-image(linear-gradient(top, #61b3e3, #3080bb))
-  +box-shadow(#75bee7 0 0 1px 0 inset)
-  +border-radius(0.25em)
-  border: 1px solid #3080bb
+  padding: 0 1.6em
+  background: #3498db
+  +border-radius(6px)
   color: #ffffff
   font-size: medium
   font-weight: bold
-  +text-shadow(rgba(0, 0, 0, 0.9) 1px 1px 2px)
+  +transition(background-color, 400ms)
 
   &, &:visited
     text-decoration: none
 
   &:hover, &:active
     text-decoration: none
-    +background-image(linear-gradient(top, #61b3e3, #3080bb 70%, #3080bb))
+    background: #2980b9
 
 .el_button--danger
-  background: #cd4922
-  +background-image(linear-gradient(top, #e05721, #be3e23))
-  +box-shadow(#e56832 0 0 1px 0 inset)
-  border: 1px solid #9e2601
+  background: #e74c3c
 
   &:hover, &:active
-    +background-image(linear-gradient(top, #e05721, #be3e23 70%, #be3e23))
+    background: #c0392b
 
 .el_button--primary
-  background: #fbad15
-  +background-image(linear-gradient(top, #ffc20f, #f89a1e))
-  +box-shadow(#ffcc2b 0 0 1px 0 inset)
-  border: 1px solid #86540d
-  color: $def-font-color
-  +text-shadow(rgba(0, 0, 0, 0.4) 1px 1px 2px)
+  background: #1abc9c
 
   &:hover, &:active
-    +background-image(linear-gradient(top, #ffc20f, #f89a1e 70%, #f89a1e))
+    background: #16a085
 
 .el_button--secondary
-  background: #e2e4e3
-  +background-image(linear-gradient(top, #ebebeb, #dce0df))
-  +box-shadow(#dce0df 0 0 1px 0 inset)
-  border: 1px solid #939393
-  color: $def-font-color
-  +text-shadow(rgba(0, 0, 0, 0.4) 1px 1px 2px)
+  background: #95a5a6
   font-weight: normal
 
   &:hover, &:active
-    +background-image(linear-gradient(top, #ebebeb, #dce0df 70%, #dce0df))
+    background: #7f8c8d
 
 .el_field
   display: inline-block
